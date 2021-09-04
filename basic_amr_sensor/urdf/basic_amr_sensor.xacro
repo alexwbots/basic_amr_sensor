@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+
+<robot name="basic_amr" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Begin - Include -->
+
+  <xacro:include filename="$(find basic_amr_sensor)/urdf/basic_amr_gazebo.xacro" />
+
+  <!-- End - Include -->
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+
+  <material name="green">
+    <color rgba="0.1 0.8 0.1 1"/>
+  </material>
+
+  <!-- Begin - Robot description -->
+
+  <link name="base_link" />
+
+  <joint name="base__base_link" type="fixed">
+    <parent link="base_link"/>
+    <child link="base"/>
+  </joint>
+
+  <link name="base">
+    <origin rpy="0 0 0" xyz="0.00 0 0.00"/>
+    <visual>
+      <geometry>
+        <box size="0.08 0.05 0.002"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.08 0.05 0.002"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
+    </inertial>
+  </link>
+
+  <link name="fcastor_wheel">
+    <origin rpy="0 0 0" xyz="0.00 0 0.00"/>
+    <visual>
+      <geometry>
+        <cylinder length="0.006" radius="0.0035"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.006" radius="0.0035"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+  </link>
+  
+  <joint name="base__fcastor_wheel" type="continuous">
+    <parent link="base"/>
+    <child link="fcastor_wheel"/>
+    <origin xyz="0.028 0 -0.005" rpy="1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="bcastor_wheel">
+    <origin rpy="0 0 0" xyz="0.00 0 0.00"/>
+    <visual>
+      <geometry>
+        <cylinder length="0.006" radius="0.0035"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.006" radius="0.0035"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+  </link>
+  
+  <joint name="base__bcastor_wheel" type="continuous">
+    <parent link="base"/>
+    <child link="bcastor_wheel"/>
+    <origin xyz="-0.028 0 -0.005" rpy="1.5708 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="left_wheel">
+    <origin rpy="0 0 0" xyz="0.00 0 0.00"/>
+    <visual>
+      <geometry>
+        <cylinder length="0.006" radius="0.016"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.006" radius="0.016"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+  </link>
+  
+  <joint name="wheel_left_joint" type="continuous">
+    <parent link="base"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0.032 0.007" rpy="1.5708 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <link name="right_wheel">
+    <origin rpy="0 0 0" xyz="0.00 0 0.00"/>
+    <visual>
+      <geometry>
+        <cylinder length="0.006" radius="0.016"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.006" radius="0.016"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.05" />
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001" />
+    </inertial>
+  </link>
+  
+  <joint name="wheel_right_joint" type="continuous">
+    <parent link="base"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 -0.032 0.007" rpy="1.5708 0 0"/>
+    <axis xyz="0 0 -1"/>
+  </joint>
+
+  <!-- End - Robot description -->
+
+  <!-- Begin - Sensor description -->
+
+  <!-- RGB Camera representation -->
+
+  <link name="front_camera_link">
+    <visual>
+      <origin rpy="0.0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="base__front_camera_joint" type="fixed">
+    <parent link="base"/>
+    <child link="front_camera_link"/>
+    <origin xyz="0.040 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- End - Sensor description -->
+
+</robot>
