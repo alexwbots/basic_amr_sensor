@@ -20,6 +20,6 @@ if __name__ == '__main__':
 
     bcamera_blink.sendTransform((0.04, 0.00, 0.00),
         tf.transformations.quaternion_from_euler(0, 0, 0),
-        rospy.Time.now(),"front_dcamera_link","base_link")
+        rospy.Time.now(),"front_camera_link","base_link")
 
     rate.sleep()
