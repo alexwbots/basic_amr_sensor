@@ -18,6 +18,6 @@
 
   <!-- Visualization of the robot using Rviz -->
   <param name="use_gui" value="true"/>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find basic_amr)/config/basic_amr_config.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find basic_amr_sensor)/config/basic_amr_config.rviz" required="true" />
 
 </launch>
