@@ -5,7 +5,7 @@
   <description>The basic_amr_sensor package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
-  <maintainer email="lopez.alexander@utec.edu.pe">Alexander Lopez</maintainer>
+  <maintainer email="lopez.alexander@pucp.edu.pe">Alexander Lopez</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -23,7 +23,7 @@
   <!-- Author tags are optional, multiple are allowed, one per tag -->
   <!-- Authors do not have to be maintainers, but could be -->
 
-  <author email="lopez.alexander@utec.edu.pe">Alexander Lopez</author>
+  <author email="lopez.alexander@pucp.edu.pe">Alexander Lopez</author>
 
 
   <!-- The *depend tags are used to specify dependencies -->
